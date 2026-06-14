@@ -1,0 +1,15 @@
+{
+	"name": "syntova-adf",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "2f87dc5f-3265-43c2-8ed3-22ca935e176b",
+		"tenantId": "d18283f2-9da8-44ec-97d0-6ae711797166"
+	}
+}
