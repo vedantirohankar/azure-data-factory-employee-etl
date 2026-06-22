@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "bronze/retail",
+				"folderPath": "bronze/retail/customers",
 				"fileSystem": "retaildatalake"
 			},
 			"columnDelimiter": ",",
