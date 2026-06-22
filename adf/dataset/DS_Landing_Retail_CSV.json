@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "sales.csv",
+				"fileName": "products.csv",
 				"folderPath": "landing/retail",
 				"fileSystem": "retaildatalake"
 			},
