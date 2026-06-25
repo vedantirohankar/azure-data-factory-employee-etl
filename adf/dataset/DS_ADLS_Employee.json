@@ -10,8 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "employee.csv",
-				"fileSystem": "raw"
+				"folderPath": "bronze",
+				"fileSystem": "datalake"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
