@@ -1,0 +1,110 @@
+{
+	"name": "dataf",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DS_ADLS_Employee",
+						"type": "DatasetReference"
+					},
+					"name": "employee"
+				},
+				{
+					"dataset": {
+						"referenceName": "dimemployee",
+						"type": "DatasetReference"
+					},
+					"name": "CurrentDimEmployee"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "dimemployee",
+						"type": "DatasetReference"
+					},
+					"name": "UpdateOldEmployee"
+				}
+			],
+			"transformations": [
+				{
+					"name": "LookupExistingEmployee"
+				},
+				{
+					"name": "CheckDepartmentChange"
+				},
+				{
+					"name": "ExpireOldVersion"
+				},
+				{
+					"name": "MarkForUpdate"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          EmpID as short,",
+				"          EmpName as string,",
+				"          Department as string,",
+				"          Salary as double,",
+				"          LastModifiedDate as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> employee",
+				"source(output(",
+				"          TargetEmployeeKey as long,",
+				"          TargetEmpID as integer,",
+				"          TargetEmpName as string,",
+				"          TargetDepartment as string,",
+				"          TargetSalary as decimal(18,2)",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     query: 'SELECT\\n    EmployeeKey AS TargetEmployeeKey,\\n    EmpID AS TargetEmpID,\\n    EmpName AS TargetEmpName,\\n    Department AS TargetDepartment,\\n    Salary AS TargetSalary\\nFROM dbo.DimEmployee\\nWHERE IsCurrent = 1',",
+				"     format: 'query') ~> CurrentDimEmployee",
+				"employee, CurrentDimEmployee lookup(EmpID == TargetEmpID,",
+				"     multiple: false,",
+				"     pickup: 'any',",
+				"     broadcast: 'auto')~> LookupExistingEmployee",
+				"LookupExistingEmployee split(!isNull(TargetEmployeeKey) && Department != TargetDepartment,",
+				"     disjoint: false) ~> CheckDepartmentChange@(ChangedEmployee, UnchangedEmployee)",
+				"CheckDepartmentChange@ChangedEmployee derive(EmployeeKey = toInteger(TargetEmployeeKey),",
+				"          EffectiveTo = currentDate('UTC'),",
+				"          {IsCurrent   } = false(),",
+				"          LastUpdatedUTC = currentUTC()) ~> ExpireOldVersion",
+				"ExpireOldVersion alterRow(updateIf(true())) ~> MarkForUpdate",
+				"MarkForUpdate sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          EmployeeKey as long,",
+				"          EmpID as integer,",
+				"          EmpName as string,",
+				"          Department as string,",
+				"          Salary as decimal(18,2),",
+				"          EffectiveFrom as timestamp,",
+				"          EffectiveTo as timestamp,",
+				"          IsCurrent as boolean,",
+				"          LastUpdatedUTC as timestamp",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:false,",
+				"     updateable:true,",
+				"     upsertable:false,",
+				"     keys:['EmployeeKey'],",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          EmployeeKey,",
+				"          IsCurrent = {IsCurrent   },",
+				"          LastUpdatedUTC,",
+				"          EffectiveTo",
+				"     )) ~> UpdateOldEmployee"
+			]
+		}
+	}
+}
