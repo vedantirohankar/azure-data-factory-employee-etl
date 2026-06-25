@@ -40,6 +40,12 @@
 				},
 				{
 					"name": "MarkForUpdate"
+				},
+				{
+					"name": "EmployeesToInsert"
+				},
+				{
+					"name": "CreateNewVersion"
 				}
 			],
 			"scriptLines": [
@@ -70,12 +76,15 @@
 				"     pickup: 'any',",
 				"     broadcast: 'auto')~> LookupExistingEmployee",
 				"LookupExistingEmployee split(!isNull(TargetEmployeeKey) && Department != TargetDepartment,",
-				"     disjoint: false) ~> CheckDepartmentChange@(ChangedEmployee, UnchangedEmployee)",
+				"     isNull(TargetEmployeeKey),",
+				"     disjoint: false) ~> CheckDepartmentChange@(ChangedEmployee, Newemployee, UnchangedEmployee)",
 				"CheckDepartmentChange@ChangedEmployee derive(EmployeeKey = toInteger(TargetEmployeeKey),",
 				"          EffectiveTo = currentDate('UTC'),",
 				"          {IsCurrent   } = false(),",
 				"          LastUpdatedUTC = currentUTC()) ~> ExpireOldVersion",
 				"ExpireOldVersion alterRow(updateIf(true())) ~> MarkForUpdate",
+				"CheckDepartmentChange@ChangedEmployee union(byName: true)~> EmployeesToInsert",
+				"EmployeesToInsert derive() ~> CreateNewVersion",
 				"MarkForUpdate sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
