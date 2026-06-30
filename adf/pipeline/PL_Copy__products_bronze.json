@@ -1,9 +1,9 @@
 {
-	"name": "PL_Employee_SCD2",
+	"name": "PL_Copy__products_bronze",
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy_employee_to_bronze",
+				"name": "Copy_products_To_Bronze_copy1",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -37,62 +37,88 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "EmpID",
+									"name": "productID",
 									"type": "Int32",
 									"physicalType": "int"
 								},
 								"sink": {
-									"name": "EmpID",
+									"name": "productID",
 									"type": "String",
 									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "EmpName",
+									"name": "productName",
 									"type": "String",
 									"physicalType": "varchar"
 								},
 								"sink": {
-									"name": "EmpName",
+									"name": "productName",
 									"type": "String",
 									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "Department",
+									"name": "category",
 									"type": "String",
 									"physicalType": "varchar"
 								},
 								"sink": {
-									"name": "Department",
+									"name": "category",
 									"type": "String",
 									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "Salary",
+									"name": "subcategory",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "subcategory",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "brand",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "brand",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "unitprice",
 									"type": "Decimal",
 									"physicalType": "decimal",
 									"scale": 2,
 									"precision": 10
 								},
 								"sink": {
-									"name": "Salary",
+									"name": "unitprice",
 									"type": "String",
 									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "LastModifiedDate",
-									"type": "DateTime",
-									"physicalType": "datetime"
+									"name": "costprice",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 10
 								},
 								"sink": {
-									"name": "LastModifiedDate",
+									"name": "costprice",
 									"type": "String",
 									"physicalType": "String"
 								}
@@ -107,13 +133,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DSEmployee",
+						"referenceName": "Azure_sql_products",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DS_ADLS_Employee2",
+						"referenceName": "DS_ADLS_Products2",
 						"type": "DatasetReference"
 					}
 				]

@@ -1,0 +1,64 @@
+{
+	"name": "DS_SQL_Sales",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_azureSQL1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "saleID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "salesDate",
+				"type": "date"
+			},
+			{
+				"name": "customerID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "productID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "storeID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "enployeeID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "quantity",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "saleschannel",
+				"type": "varchar"
+			},
+			{
+				"name": "Discount",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "SaleDate",
+				"type": "date"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "sales"
+		}
+	}
+}

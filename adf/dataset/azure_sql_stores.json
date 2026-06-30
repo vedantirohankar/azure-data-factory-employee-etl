@@ -1,0 +1,46 @@
+{
+	"name": "azure_sql_stores",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LSAZURESQL_retail",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "storeID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "storeName",
+				"type": "varchar"
+			},
+			{
+				"name": "city",
+				"type": "varchar"
+			},
+			{
+				"name": "state",
+				"type": "varchar"
+			},
+			{
+				"name": "region",
+				"type": "varchar"
+			},
+			{
+				"name": "storetype",
+				"type": "varchar"
+			},
+			{
+				"name": "openingdate",
+				"type": "date"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "stores"
+		}
+	}
+}

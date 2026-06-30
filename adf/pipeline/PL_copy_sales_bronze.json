@@ -1,9 +1,9 @@
 {
-	"name": "PL_Employee_SCD2",
+	"name": "PL_copy_sales_bronze",
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy_employee_to_bronze",
+				"name": "Copy_sales_To_Bronze_copy1",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -37,62 +37,120 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "EmpID",
+									"name": "saleID",
 									"type": "Int32",
 									"physicalType": "int"
 								},
 								"sink": {
-									"name": "EmpID",
+									"name": "saleID",
 									"type": "String",
 									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "EmpName",
+									"name": "salesDate",
+									"type": "Date",
+									"physicalType": "date"
+								},
+								"sink": {
+									"name": "salesDate",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "customerID",
+									"type": "Int32",
+									"physicalType": "int"
+								},
+								"sink": {
+									"name": "customerID",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "productID",
+									"type": "Int32",
+									"physicalType": "int"
+								},
+								"sink": {
+									"name": "productID",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "storeID",
+									"type": "Int32",
+									"physicalType": "int"
+								},
+								"sink": {
+									"name": "storeID",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "enployeeID",
+									"type": "Int32",
+									"physicalType": "int"
+								},
+								"sink": {
+									"name": "enployeeID",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "quantity",
+									"type": "Int32",
+									"physicalType": "int"
+								},
+								"sink": {
+									"name": "quantity",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "saleschannel",
 									"type": "String",
 									"physicalType": "varchar"
 								},
 								"sink": {
-									"name": "EmpName",
+									"name": "saleschannel",
 									"type": "String",
 									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "Department",
-									"type": "String",
-									"physicalType": "varchar"
+									"name": "Discount",
+									"type": "Int32",
+									"physicalType": "int"
 								},
 								"sink": {
-									"name": "Department",
-									"type": "String",
-									"physicalType": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "Salary",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 10
-								},
-								"sink": {
-									"name": "Salary",
+									"name": "Discount",
 									"type": "String",
 									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "LastModifiedDate",
-									"type": "DateTime",
-									"physicalType": "datetime"
+									"name": "SaleDate",
+									"type": "Date",
+									"physicalType": "date"
 								},
 								"sink": {
-									"name": "LastModifiedDate",
+									"name": "SaleDate",
 									"type": "String",
 									"physicalType": "String"
 								}
@@ -107,13 +165,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DSEmployee",
+						"referenceName": "azure_Sql_Sales",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DS_ADLS_Employee2",
+						"referenceName": "DS_ADLS_Sales2",
 						"type": "DatasetReference"
 					}
 				]

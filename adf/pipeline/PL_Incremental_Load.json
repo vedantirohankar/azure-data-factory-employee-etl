@@ -85,7 +85,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "DS_ADLS_Employee",
+						"referenceName": "DS_ADLS_Employee2",
 						"type": "DatasetReference"
 					}
 				]

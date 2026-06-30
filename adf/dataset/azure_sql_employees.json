@@ -1,0 +1,53 @@
+{
+	"name": "azure_sql_employees",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LSAZURESQL_retail",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "employeeID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "employeeName",
+				"type": "varchar"
+			},
+			{
+				"name": "gender",
+				"type": "varchar"
+			},
+			{
+				"name": "department",
+				"type": "varchar"
+			},
+			{
+				"name": "designation",
+				"type": "varchar"
+			},
+			{
+				"name": "storeID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "HireDate",
+				"type": "date"
+			},
+			{
+				"name": "salary",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "employees"
+		}
+	}
+}

@@ -1,8 +1,8 @@
 {
-	"name": "DS_ADLS_Employee2",
+	"name": "DS_ADLS_Sales2",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "LS_ADLS",
+			"referenceName": "LS_azuregen2",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -10,8 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "dbo.Employee.txt",
-				"folderPath": "bronze",
+				"folderPath": "bronze/sales",
 				"fileSystem": "datalake"
 			},
 			"columnDelimiter": ",",

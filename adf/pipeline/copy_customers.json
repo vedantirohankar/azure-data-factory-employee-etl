@@ -1,5 +1,5 @@
 {
-	"name": "copy_sales",
+	"name": "copy_customers",
 	"properties": {
 		"activities": [
 			{
@@ -37,18 +37,6 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "SaleID",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "saleID",
-									"type": "Int32",
-									"physicalType": "int"
-								}
-							},
-							{
-								"source": {
 									"name": "CustomerID",
 									"type": "String",
 									"physicalType": "String"
@@ -61,60 +49,96 @@
 							},
 							{
 								"source": {
-									"name": "ProductID",
+									"name": "CustomerName",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "productID",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "customerName",
+									"type": "String",
+									"physicalType": "varchar"
 								}
 							},
 							{
 								"source": {
-									"name": "StoreID",
+									"name": "Gender",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "storeID",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "gender",
+									"type": "String",
+									"physicalType": "varchar"
 								}
 							},
 							{
 								"source": {
-									"name": "Quantity",
+									"name": "Email",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "quantity",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "Email",
+									"type": "String",
+									"physicalType": "varchar"
 								}
 							},
 							{
 								"source": {
-									"name": "Discount",
+									"name": "Phone",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Discount",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "phone",
+									"type": "String",
+									"physicalType": "varchar"
 								}
 							},
 							{
 								"source": {
-									"name": "SaleDate",
+									"name": "City",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "SaleDate",
+									"name": "city",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "State",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "state",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Country",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "country",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "JoinDate",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "joindate",
 									"type": "Date",
 									"physicalType": "date"
 								}
@@ -129,13 +153,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_Adls_sales",
+						"referenceName": "ds_adls_customer",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "azure_Sql_Sales",
+						"referenceName": "azure_sql_customer",
 						"type": "DatasetReference"
 					}
 				]

@@ -1,5 +1,5 @@
 {
-	"name": "copy_sales",
+	"name": "copy_employee",
 	"properties": {
 		"activities": [
 			{
@@ -37,38 +37,38 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "SaleID",
+									"name": "EmployeeID",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "saleID",
+									"name": "employeeID",
 									"type": "Int32",
 									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
-									"name": "CustomerID",
+									"name": "EmployeeName",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "customerID",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "employeeName",
+									"type": "String",
+									"physicalType": "varchar"
 								}
 							},
 							{
 								"source": {
-									"name": "ProductID",
+									"name": "Designation",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "productID",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "designation",
+									"type": "String",
+									"physicalType": "varchar"
 								}
 							},
 							{
@@ -85,36 +85,26 @@
 							},
 							{
 								"source": {
-									"name": "Quantity",
+									"name": "Salary",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "quantity",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "salary",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 10
 								}
 							},
 							{
 								"source": {
-									"name": "Discount",
+									"name": "JoiningDate",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Discount",
-									"type": "Int32",
-									"physicalType": "int"
-								}
-							},
-							{
-								"source": {
-									"name": "SaleDate",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "SaleDate",
+									"name": "JoiningDate",
 									"type": "Date",
 									"physicalType": "date"
 								}
@@ -129,13 +119,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_Adls_sales",
+						"referenceName": "ad_adls_employees",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "azure_Sql_Sales",
+						"referenceName": "azure_sql_employees",
 						"type": "DatasetReference"
 					}
 				]

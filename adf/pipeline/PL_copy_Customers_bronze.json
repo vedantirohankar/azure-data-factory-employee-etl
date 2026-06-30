@@ -1,9 +1,9 @@
 {
-	"name": "PL_Employee_SCD2",
+	"name": "PL_copy_Customers_bronze",
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy_employee_to_bronze",
+				"name": "Copy_customers_To_Bronze_copy1",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -37,62 +37,108 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "EmpID",
+									"name": "customerID",
 									"type": "Int32",
 									"physicalType": "int"
 								},
 								"sink": {
-									"name": "EmpID",
+									"name": "customerID",
 									"type": "String",
 									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "EmpName",
+									"name": "customerName",
 									"type": "String",
 									"physicalType": "varchar"
 								},
 								"sink": {
-									"name": "EmpName",
+									"name": "customerName",
 									"type": "String",
 									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "Department",
+									"name": "gender",
 									"type": "String",
 									"physicalType": "varchar"
 								},
 								"sink": {
-									"name": "Department",
+									"name": "gender",
 									"type": "String",
 									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "Salary",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 10
+									"name": "Email",
+									"type": "String",
+									"physicalType": "varchar"
 								},
 								"sink": {
-									"name": "Salary",
+									"name": "Email",
 									"type": "String",
 									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "LastModifiedDate",
-									"type": "DateTime",
-									"physicalType": "datetime"
+									"name": "phone",
+									"type": "String",
+									"physicalType": "varchar"
 								},
 								"sink": {
-									"name": "LastModifiedDate",
+									"name": "phone",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "city",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "city",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "state",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "state",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "country",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "country",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "joindate",
+									"type": "Date",
+									"physicalType": "date"
+								},
+								"sink": {
+									"name": "joindate",
 									"type": "String",
 									"physicalType": "String"
 								}
@@ -107,13 +153,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DSEmployee",
+						"referenceName": "azure_sql_customer",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DS_ADLS_Employee2",
+						"referenceName": "DS_ADLS_Customers2",
 						"type": "DatasetReference"
 					}
 				]

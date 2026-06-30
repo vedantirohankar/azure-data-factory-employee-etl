@@ -30,7 +30,10 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "@concat(\n'SELECT EmployeeID, EmployeeName, Department, Salary, LastModifiedDate\n FROM dbo.Employee\n WHERE LastModifiedDate > ''',\nactivity('Lookup_Old_Watermark').output.firstRow.LastLoadTime,\n''' AND LastModifiedDate <= ''',\nactivity('Lookup_New_Watermark').output.firstRow.NewWatermark,\n''''\n)",
+						"sqlReaderQuery": {
+							"value": "@concat(\n'SELECT EmployeeID, EmployeeName, Department, Salary, LastModifiedDate\n FROM dbo.Employee\n WHERE LastModifiedDate > ''',\nactivity('Lookup_Old_Watermark').output.firstRow.LastLoadTime,\n''' AND LastModifiedDate <= ''',\nactivity('Lookup_New_Watermark').output.firstRow.NewWatermark,\n''''\n)",
+							"type": "Expression"
+						},
 						"queryTimeout": "02:00:00",
 						"partitionOption": "DynamicRange",
 						"partitionSettings": {
@@ -131,7 +134,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "DS_ADLS_Employee",
+						"referenceName": "DS_ADLS_Employee2",
 						"type": "DatasetReference"
 					}
 				]

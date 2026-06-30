@@ -1,0 +1,34 @@
+{
+	"name": "DS_SQL_Stores",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_azureSQL1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "storeID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "storeName",
+				"type": "varchar"
+			},
+			{
+				"name": "city",
+				"type": "varchar"
+			},
+			{
+				"name": "state",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "stores"
+		}
+	}
+}

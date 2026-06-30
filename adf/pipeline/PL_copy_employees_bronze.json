@@ -1,9 +1,9 @@
 {
-	"name": "PL_Employee_SCD2",
+	"name": "PL_copy_employees_bronze",
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy_employee_to_bronze",
+				"name": "Copy_employee_To_Bronze_copy1",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -37,62 +37,74 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "EmpID",
+									"name": "employeeID",
 									"type": "Int32",
 									"physicalType": "int"
 								},
 								"sink": {
-									"name": "EmpID",
+									"name": "employeeID",
 									"type": "String",
 									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "EmpName",
+									"name": "employeeName",
 									"type": "String",
 									"physicalType": "varchar"
 								},
 								"sink": {
-									"name": "EmpName",
+									"name": "employeeName",
 									"type": "String",
 									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "Department",
+									"name": "designation",
 									"type": "String",
 									"physicalType": "varchar"
 								},
 								"sink": {
-									"name": "Department",
+									"name": "designation",
 									"type": "String",
 									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "Salary",
+									"name": "storeID",
+									"type": "Int32",
+									"physicalType": "int"
+								},
+								"sink": {
+									"name": "storeID",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "salary",
 									"type": "Decimal",
 									"physicalType": "decimal",
 									"scale": 2,
 									"precision": 10
 								},
 								"sink": {
-									"name": "Salary",
+									"name": "salary",
 									"type": "String",
 									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "LastModifiedDate",
-									"type": "DateTime",
-									"physicalType": "datetime"
+									"name": "JoiningDate",
+									"type": "Date",
+									"physicalType": "date"
 								},
 								"sink": {
-									"name": "LastModifiedDate",
+									"name": "JoiningDate",
 									"type": "String",
 									"physicalType": "String"
 								}
@@ -107,7 +119,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DSEmployee",
+						"referenceName": "azure_sql_employees",
 						"type": "DatasetReference"
 					}
 				],

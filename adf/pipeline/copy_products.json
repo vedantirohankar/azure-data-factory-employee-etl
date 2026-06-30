@@ -1,5 +1,5 @@
 {
-	"name": "copy_sales",
+	"name": "copy_products",
 	"properties": {
 		"activities": [
 			{
@@ -37,30 +37,6 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "SaleID",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "saleID",
-									"type": "Int32",
-									"physicalType": "int"
-								}
-							},
-							{
-								"source": {
-									"name": "CustomerID",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "customerID",
-									"type": "Int32",
-									"physicalType": "int"
-								}
-							},
-							{
-								"source": {
 									"name": "ProductID",
 									"type": "String",
 									"physicalType": "String"
@@ -73,50 +49,66 @@
 							},
 							{
 								"source": {
-									"name": "StoreID",
+									"name": "ProductName",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "storeID",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "productName",
+									"type": "String",
+									"physicalType": "varchar"
 								}
 							},
 							{
 								"source": {
-									"name": "Quantity",
+									"name": "Category",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "quantity",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "category",
+									"type": "String",
+									"physicalType": "varchar"
 								}
 							},
 							{
 								"source": {
-									"name": "Discount",
+									"name": "Brand",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Discount",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "brand",
+									"type": "String",
+									"physicalType": "varchar"
 								}
 							},
 							{
 								"source": {
-									"name": "SaleDate",
+									"name": "UnitPrice",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "SaleDate",
-									"type": "Date",
-									"physicalType": "date"
+									"name": "unitprice",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 10
+								}
+							},
+							{
+								"source": {
+									"name": "CostPrice",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "costprice",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 5
 								}
 							}
 						],
@@ -129,13 +121,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_Adls_sales",
+						"referenceName": "ds_adls_products",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "azure_Sql_Sales",
+						"referenceName": "Azure_sql_products",
 						"type": "DatasetReference"
 					}
 				]
