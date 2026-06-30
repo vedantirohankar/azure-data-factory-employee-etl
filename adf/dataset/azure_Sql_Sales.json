@@ -1,0 +1,71 @@
+{
+	"name": "azure_Sql_Sales",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LSAZURESQL_retail",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "salesID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "salesDate",
+				"type": "date"
+			},
+			{
+				"name": "customerID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "productID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "storeID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "enployeeID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "quantity",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "unitprice",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "discountpercent",
+				"type": "decimal",
+				"precision": 5,
+				"scale": 2
+			},
+			{
+				"name": "payementMethod",
+				"type": "varchar"
+			},
+			{
+				"name": "saleschannel",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "sales"
+		}
+	}
+}
