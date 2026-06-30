@@ -1,0 +1,96 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "syntova-adf"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_password": {
+			"value": ""
+		},
+		"LSADLS_Reatil_accountKey": {
+			"value": ""
+		},
+		"LSAZURESQL_retail_password": {
+			"value": ""
+		},
+		"LS_ADLS_accountKey": {
+			"value": ""
+		},
+		"LS_ADLS_Gen2_accountKey": {
+			"value": ""
+		},
+		"LS_ADLS_Retail_accountKey": {
+			"value": ""
+		},
+		"LS_AzureSQL_password": {
+			"value": ""
+		},
+		"LS_azuregen2_accountKey": {
+			"value": ""
+		},
+		"ls_azureSQL1_password": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_properties_typeProperties_server": {
+			"value": "syntovasqlserver123.database.windows.net"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"value": "EmployeeDB"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"value": "sqladmin"
+		},
+		"LSADLS_Reatil_properties_typeProperties_url": {
+			"value": "https://syntovaretail001.dfs.core.windows.net/"
+		},
+		"LSAZURESQL_retail_properties_typeProperties_server": {
+			"value": "syntovasqlserver123.database.windows.net"
+		},
+		"LSAZURESQL_retail_properties_typeProperties_database": {
+			"value": "retail-analyticsDB"
+		},
+		"LSAZURESQL_retail_properties_typeProperties_userName": {
+			"value": "sqladmin"
+		},
+		"LS_ADLS_properties_typeProperties_url": {
+			"value": "https://adlsemployee123.dfs.core.windows.net/"
+		},
+		"LS_ADLS_Gen2_properties_typeProperties_url": {
+			"value": "https://adlsbsg.dfs.core.windows.net/"
+		},
+		"LS_ADLS_Retail_properties_typeProperties_url": {
+			"value": "https://adlsretail123.dfs.core.windows.net/"
+		},
+		"LS_AzureSQL_properties_typeProperties_server": {
+			"value": "syntovasqlserver123.database.windows.net"
+		},
+		"LS_AzureSQL_properties_typeProperties_database": {
+			"value": "EmployeeDB"
+		},
+		"LS_AzureSQL_properties_typeProperties_userName": {
+			"value": "sqladmin"
+		},
+		"LS_azuregen2_properties_typeProperties_url": {
+			"value": "https://syntovaretail001.dfs.core.windows.net/"
+		},
+		"ls_azureSQL1_properties_typeProperties_server": {
+			"value": "syntovasqlserver123.database.windows.net"
+		},
+		"ls_azureSQL1_properties_typeProperties_database": {
+			"value": "retail-analyticsDB"
+		},
+		"ls_azureSQL1_properties_typeProperties_userName": {
+			"value": "sqladmin"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
